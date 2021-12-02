@@ -1,0 +1,9 @@
+.idea
+
+*.iml
+
+frontend/node_modules
+
+**/target
+
+database
