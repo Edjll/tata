@@ -13,6 +13,7 @@
         <module>database</module>
         <module>entrypoint</module>
         <module>operator</module>
+        <module>camera</module>
     </modules>
 
     <parent>
