@@ -1,6 +1,7 @@
 package ru.sstu.tata.database.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,6 +12,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -30,6 +32,8 @@ public class User implements UserDetails {
     private String surname;
 
     private Role role;
+
+    private Boolean isEnabled = true;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -63,6 +67,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 }
