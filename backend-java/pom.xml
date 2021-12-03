@@ -14,6 +14,7 @@
         <module>entrypoint</module>
         <module>operator</module>
         <module>camera</module>
+        <module>kafka</module>
     </modules>
 
     <parent>

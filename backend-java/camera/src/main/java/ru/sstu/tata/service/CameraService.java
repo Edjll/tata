@@ -37,6 +37,8 @@ public class CameraService {
                 .address(cameraRequest.getAddress())
                 .latitude(cameraRequest.getLatitude())
                 .longitude(cameraRequest.getLongitude())
+                .startTime(cameraRequest.getStartTime())
+                .interval(cameraRequest.getInterval())
                 .build();
     }
 

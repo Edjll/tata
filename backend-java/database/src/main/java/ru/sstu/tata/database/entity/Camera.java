@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Entity
 @Data
@@ -31,11 +30,10 @@ public class Camera {
 
     private Double longitude; //долгота
 
-    private LocalTime startTime;
+    private LocalDateTime startTime; //время начала проверки
 
-    private LocalDateTime lastCheck;
+    private LocalDateTime interval; //время после startTime (часы)
 
-    //время старта | date при регитсрации
-    //последний запуск | date обновляю после отправки в питон
+    private LocalDateTime lastCheck; //время последней проверки
 
 }
