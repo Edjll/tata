@@ -3,7 +3,6 @@ package ru.sstu.tata.configuration;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
@@ -35,6 +34,8 @@ public class KafkaTopicConfiguration {
 
     @PostConstruct
     public void sendMessage() {
-        kafkaTemplate.send("topic-camera", "{\"id\":1,\"ip\":\"192.168.0.0\"}");
+        for (int i = 0; i < 50; i++) {
+            kafkaTemplate.send("topic-camera", "{\"id\":1,\"ip\":\"192.168.0.0\"}");
+        }
     }
 }
