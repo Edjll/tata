@@ -34,13 +34,13 @@ public class KafkaTopicConfiguration {
         return new NewTopic(producerTopic, 1, (short) 1);
     }
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+//    @Autowired
+//    private KafkaTemplate<String, String> kafkaTemplate;
 
-    @PostConstruct
-    public void sendMessage() {
-        for (int i = 0; i < 50; i++) {
-            kafkaTemplate.send(producerTopic, "{\"id\":1,\"ip\":\"192.168.0.0\"}");
-        }
-    }
+//    @PostConstruct
+//    public void sendMessage() {
+//        for (int i = 0; i < 50; i++) {
+//            kafkaTemplate.send(producerTopic, "{\"id\":1,\"ip\":\"192.168.0.0\"}");
+//        }
+//    }
 }

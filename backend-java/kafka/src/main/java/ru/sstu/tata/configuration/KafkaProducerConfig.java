@@ -1,5 +1,6 @@
 package ru.sstu.tata.configuration;
 
+import com.fasterxml.jackson.databind.JsonSerializable;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import ru.sstu.tata.dto.CameraRequestDto;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +25,7 @@ public class KafkaProducerConfig {
     private String producerGroup;
 
     @Bean
-    public ProducerFactory<String, String> producerFactory() {
+    public ProducerFactory<String, CameraRequestDto> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
@@ -41,7 +43,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, String> kafkaTemplate() {
+    public KafkaTemplate<String, CameraRequestDto> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

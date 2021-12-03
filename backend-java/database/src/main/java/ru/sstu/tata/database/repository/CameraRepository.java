@@ -8,5 +8,4 @@ import java.util.Date;
 
 public interface CameraRepository extends PagingAndSortingRepository<Camera, Long> {
 
-    Camera getCameraByLastCheckIsBefore(Date date);
 }
