@@ -1,0 +1,81 @@
+.form-input {
+  position: relative;
+  display: flex;
+  margin: 1rem 0.5rem;
+  cursor: text;
+}
+.form-input__title {
+  position: absolute;
+  margin-left: 1rem;
+  transition: top 0.1s, font-size 0.1s;
+  top: 1.1rem;
+  font-size: 1rem;
+  user-select: none;
+  font-weight: 500;
+}
+.form-input__error {
+  padding: 1.1rem 1rem 0.7rem 1rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+.form-input__error__icon {
+  color: red;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+}
+.form-input__error__text {
+  position: absolute;
+  display: none;
+  right: 2.5rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #3e4446;
+  border-radius: 0.25rem;
+  color: #f58f8f;
+  max-width: 10rem;
+  width: max-content;
+}
+.form-input__error:hover .form-input__error__text {
+  display: block;
+}
+.form-input__fieldset {
+  border-radius: 0.25rem;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.form-input__fieldset__legend {
+  padding: 0;
+  font-size: 0.8rem;
+  max-width: 0.01px;
+  margin-left: 0.6rem;
+  visibility: hidden;
+  white-space: nowrap;
+}
+.form-input__input {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  padding: 1.1rem 1rem 0.7rem 1rem;
+  z-index: 1;
+}
+.form-input_active .form-input__title, .form-input_filled .form-input__title {
+  top: -0.2rem;
+  font-size: 0.8rem;
+}
+.form-input_active .form-input__fieldset__legend, .form-input_filled .form-input__fieldset__legend {
+  max-width: 1000px;
+  padding: 0 0.4rem;
+}
+
+/*# sourceMappingURL=form-input.css.map */

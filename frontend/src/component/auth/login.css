@@ -1,0 +1,32 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 5rem);
+  background-color: #eaeaea;
+}
+.login__card {
+  max-width: 30rem;
+  width: 100%;
+}
+.login__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f1f3f4;
+}
+.login__header__icon {
+  width: 1.5rem;
+}
+.login__button {
+  border: none;
+  background-color: #007f3b;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=login.css.map */
