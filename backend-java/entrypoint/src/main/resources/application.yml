@@ -14,7 +14,7 @@ spring:
   datasource:
     username: admin
     password: admin
-    url: jdbc:postgresql://database:5432/tata
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/tata}
   jpa:
     hibernate:
       ddl-auto: update
