@@ -2,8 +2,11 @@ package ru.sstu.tata.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import ru.sstu.tata.database.entity.Role;
@@ -23,6 +26,8 @@ public class OperatorService {
 
     private final UserRepository userRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     public void createOperator(OperatorRequest operatorRequest) {
         Optional<User> optionalUser = userRepository.findByUsername(operatorRequest.getUsername());
         if (optionalUser.isPresent()) {
@@ -35,16 +40,26 @@ public class OperatorService {
     private User createUserFromOperator(OperatorRequest operatorRequest) {
         return User.builder()
                 .username(operatorRequest.getUsername())
-                .password(operatorRequest.getPassword())
+                .password(passwordEncoder.encode(operatorRequest.getPassword()))
                 .name(operatorRequest.getName())
                 .surname(operatorRequest.getSurname())
                 .role(Role.OPERATOR)
+                .isEnabled(true)
                 .build();
     }
 
-    public List<OperatorResponse> getAllPageable(Integer page) {
-        Page<User> operators = userRepository.findByRole(Role.OPERATOR, PageRequest.of(page, 10));
-        return operators.getContent().stream().map(OperatorResponse::new).collect(Collectors.toList());
+    public Page<OperatorResponse> getAllPageable(Integer page) {
+        Pageable pageable = PageRequest.of(page, 10);
+        Page<User> operators = userRepository.findByRole(Role.OPERATOR, pageable);
+        return new PageImpl<>(
+                operators
+                        .getContent()
+                        .stream()
+                        .map(OperatorResponse::new)
+                        .collect(Collectors.toList()),
+                pageable,
+                operators.getTotalElements()
+        );
     }
 
     public OperatorResponse updateOperator(UpdateOperatorRequest updateRequest) {

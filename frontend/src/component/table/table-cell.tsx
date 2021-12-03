@@ -8,8 +8,8 @@ interface TableCellProps {
 export const TableCell = ({children}: TableCellProps) => {
 
     return (
-        <div className="table__cell">
+        <td className="table__cell">
             {children}
-        </div>
+        </td>
     )
 }

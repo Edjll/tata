@@ -47,6 +47,10 @@
     text-decoration: none;
     color: #4d5762;
     margin: 0 .5rem;
+    font-size: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: inherit;
   }
 
   &__navigation {

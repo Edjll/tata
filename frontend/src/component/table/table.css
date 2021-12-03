@@ -5,6 +5,8 @@
   border-radius: 0.25rem;
   background-color: white;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 100%;
+  margin: 2rem;
 }
 .table__title {
   border-bottom: 2px solid #e6e6e6;
@@ -13,13 +15,6 @@
 }
 .table__row, .table__header, .table__toolbar {
   min-height: 2rem;
-  display: flex;
-}
-.table__row:not(:last-of-type) {
-  border-bottom: 1px solid #e6e6e6;
-}
-.table__row:not(:first-of-type) {
-  border-top: 1px solid #e6e6e6;
 }
 .table__header, .table__toolbar:first-of-type {
   border-bottom: 2px solid #e6e6e6;
@@ -30,6 +25,7 @@
 .table__toolbar {
   align-items: center;
   justify-content: space-between;
+  display: flex;
 }
 .table__toolbar__link {
   text-decoration: none;
@@ -40,21 +36,7 @@
   background-color: #007f3b;
 }
 .table__cell {
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.table__cell:not(:last-of-type) {
-  border-right: 1px solid #e6e6e6;
-}
-.table__cell:not(:first-of-type) {
-  border-left: 1px solid #e6e6e6;
-}
-.table__cell__text {
-  border: none;
-  width: 90%;
-  height: 26px;
+  padding: 0.5rem 1rem;
 }
 .table__pagination {
   display: flex;

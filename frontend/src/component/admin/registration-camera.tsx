@@ -7,25 +7,29 @@ import {CardFooter} from "../card/card-footer";
 import './registration.css';
 import {RequestService} from "../../service/request-service";
 import {useNavigate} from "react-router-dom";
+import {FormInputType} from "../form/form-input-type";
 
 export const RegistrationCamera = () => {
     const navigate = useNavigate();
     const [ip, setIp] = useState('');
-    const [x, setX] = useState('');
-    const [y, setY] = useState('');
+    const [longitude, setLongitude] = useState('');
+    const [latitude, setLatitude] = useState('');
     const [address, setAddress] = useState('');
+    const [startTime, setStartTime] = useState('');
+    const [interval, setInterval] = useState('');
 
     const submit = () => {
         RequestService.getInstance().post(
-            RequestService.BACKEND_URL + 'cameras',
+            RequestService.BACKEND_URL + 'v1/cameras',
             {
                 ip: ip,
-                x: x,
-                y: y,
-                address: address
+                longitude: longitude,
+                latitude: latitude,
+                address: address,
+                startTime: startTime,
+                interval: interval
             }
         ).then(response => {
-            console.log(123);
             navigate(`/clean-city/${response.data.id}`);
         })
     }
@@ -36,9 +40,11 @@ export const RegistrationCamera = () => {
                 <CardHeader className={'registration__card__header'}>Регистрация камеры</CardHeader>
                 <CardBody className={'registration__card__body'}>
                     <FormInput title={'IP адрес'} value={ip} inputHandler={setIp}/>
-                    <FormInput title={'Долгота'} value={x} inputHandler={setX}/>
-                    <FormInput title={'Широта'} value={y} inputHandler={setY}/>
+                    <FormInput title={'Долгота'} value={longitude} inputHandler={setLongitude}/>
+                    <FormInput title={'Широта'} value={latitude} inputHandler={setLatitude}/>
                     <FormInput title={'Адрес'} value={address} inputHandler={setAddress}/>
+                    <FormInput title={'Время запуска'} value={startTime} inputHandler={setStartTime} type={FormInputType.TIME} hasPlaceholder={true}/>
+                    <FormInput title={'Интервал'} value={address} inputHandler={setInterval} type={FormInputType.TIME} hasPlaceholder={true}/>
                 </CardBody>
                 <CardFooter>
                     <button className={'registration__button'} onClick={() => submit()}>Зарегистрировать</button>

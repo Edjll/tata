@@ -25,7 +25,7 @@ export const LeafletMap = ({defaultCenter, selectedMarker, icons, markers, marke
 
     useEffect(() => {
         changeSize();
-    }, []);
+    }, [selectedMarker]);
 
     const changeSize = () => {
         map?.invalidateSize();

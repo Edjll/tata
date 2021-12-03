@@ -5,10 +5,10 @@ server:
 token:
   jwt:
     secret: secret
-    expire: 3600
+    expire: 3600000
   refresh:
     secret: secret
-    expire: 360000
+    expire: 36000000
 
 spring:
   datasource:
@@ -28,3 +28,6 @@ springdoc:
     path: /openapi/docs
   swagger-ui:
     path: /openapi/swagger
+
+cors:
+  url: http://localhost:3000

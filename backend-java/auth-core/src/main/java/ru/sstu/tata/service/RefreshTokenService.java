@@ -8,6 +8,7 @@ import ru.sstu.tata.database.entity.RefreshToken;
 import ru.sstu.tata.database.entity.User;
 import ru.sstu.tata.database.repository.RefreshTokenRepository;
 
+import java.security.Principal;
 import java.util.Base64;
 import java.util.Date;
 import java.util.Optional;
@@ -45,6 +46,10 @@ public class RefreshTokenService {
 
     public void deleteToken(Long tokenId) {
         refreshTokenRepository.deleteById(tokenId);
+    }
+
+    public void deleteTokenByUsername(String username) {
+        refreshTokenRepository.deleteByUserUsername(username);
     }
 
     public boolean validateExpires(RefreshToken refreshToken) {

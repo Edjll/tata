@@ -1,6 +1,7 @@
 package ru.sstu.tata.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class OperatorController {
     private final OperatorService operatorService;
 
     @GetMapping("/v1/operators")
-    public List<OperatorResponse> getAllOperators(@RequestParam Integer page) {
+    public Page<OperatorResponse> getAllOperators(@RequestParam Integer page) {
         return operatorService.getAllPageable(page);
     }
 

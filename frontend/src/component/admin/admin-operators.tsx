@@ -20,26 +20,42 @@ interface User {
 export const AdminOperators = () => {
 
     const [users, setUsers] = useState<User []>([]);
+    const [page, setPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
 
     useEffect(() => {
+        sendRequest(0);
+    }, []);
+
+    const sendRequest = (page: number) => {
         RequestService
             .getInstance()
-            .get(RequestService.BACKEND_URL + 'v1/operators')
+            .get(
+                RequestService.BACKEND_URL + 'v1/operators',
+                {
+                    params: {
+                        pagination: true,
+                        page: page
+                    }
+                }
+            )
             .then(response => {
-                setUsers(response.data);
+                setUsers(response.data.content);
+                setPage(response.data.number);
+                setPageCount(response.data.totalPages);
             })
-    }, []);
+    }
 
     return (
         <Table>
             <TableTitle>Операторы</TableTitle>
-            <TableHeader>
-                <TableCell>ID</TableCell>
-                <TableCell>Псевдоним</TableCell>
-                <TableCell>Имя</TableCell>
-                <TableCell>Фамилия</TableCell>
-            </TableHeader>
             <TableContent>
+                <TableHeader>
+                    <TableCell>ID</TableCell>
+                    <TableCell>Псевдоним</TableCell>
+                    <TableCell>Имя</TableCell>
+                    <TableCell>Фамилия</TableCell>
+                </TableHeader>
                 {
                     users.map(
                         (user, index) =>
@@ -53,7 +69,7 @@ export const AdminOperators = () => {
                 }
             </TableContent>
             <TableToolbar>
-                <TablePagination pageNumber={0} pageCount={12} maxButtons={5} clickHandler={() => {}}/>
+                <TablePagination pageNumber={page} pageCount={pageCount} maxButtons={5} clickHandler={(page: number) => sendRequest(page)}/>
                 <TableToolbarLink to={'/admin/operators/registration'}>Добавить</TableToolbarLink>
             </TableToolbar>
         </Table>

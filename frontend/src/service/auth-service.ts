@@ -1,4 +1,6 @@
 import axios from "axios";
+import {RequestService} from "./request-service";
+import {Role} from "./role";
 
 interface TokenResponse {
     accessToken: string,
@@ -15,7 +17,8 @@ interface CookieToken {
 interface ParsedAccessToken {
     sub: number,
     exp: number,
-    username: string
+    username: string,
+    roles: Role []
 }
 
 enum AuthType {
@@ -33,6 +36,10 @@ export class AuthService {
     private static Constants = class {
         static readonly ACCESS_TOKEN: string = 'accessToken';
         static readonly REFRESH_TOKEN: string = 'refreshToken';
+    }
+
+    public static hasRole(roles: Role []): boolean {
+        return roles.find(role => AuthService.parsedAccessToken.roles[0] === role) !== undefined;
     }
 
     public static init(callback: Function): void {
@@ -62,10 +69,10 @@ export class AuthService {
 
     private static verifyAccessToken(accessToken: string): Promise<void> {
         return axios.get(
-            'http://localhost:8080/auth/verify',
+            RequestService.BACKEND_URL + 'v1/auth/verify',
             {
                 headers: {
-                    Authorization: accessToken
+                    Authorization: 'Bearer ' + accessToken
                 }
             }
         );
@@ -73,14 +80,17 @@ export class AuthService {
 
     public static login(username: string, password: string): Promise<void> {
         return axios.post(
-            'http://localhost:8080/auth/token',
+            RequestService.BACKEND_URL + 'v1/auth/token',
             {
                 username: username,
                 password: password,
                 type: AuthType.PASSWORD
             }
         )
-            .then(response => AuthService.saveAccess(response.data));
+            .then(response => {
+                AuthService.saveAccess(response.data);
+                console.log(AuthService.parsedAccessToken)
+            });
     }
 
     private static saveAccess(tokenResponse: TokenResponse): void {
@@ -160,7 +170,7 @@ export class AuthService {
         else Promise.reject();
 
         return axios.post(
-            'http://localhost:8080/auth/token',
+            RequestService.BACKEND_URL + 'v1/auth/token',
             {
                 refreshToken: token,
                 type: AuthType.REFRESH_TOKEN
@@ -175,5 +185,15 @@ export class AuthService {
 
     public static getUsername(): string | null {
         return AuthService.authenticated ? AuthService.parsedAccessToken.username : null;
+    }
+
+    public static logout() {
+        return RequestService
+            .getInstance()
+            .post(RequestService.BACKEND_URL + 'v1/auth/logout')
+            .then(() => {
+                AuthService.clearCookie();
+                window.location.pathname = '/';
+            });
     }
 }

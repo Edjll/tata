@@ -7,8 +7,8 @@ interface TableHeaderProps {
 export const TableHeader = ({children}: TableHeaderProps) => {
 
     return (
-        <div className="table__header">
+        <tr className="table__header">
             {children}
-        </div>
+        </tr>
     )
 };
