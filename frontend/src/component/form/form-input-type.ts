@@ -1,5 +1,6 @@
 export enum FormInputType {
     TEXT = "text",
     PASSWORD = "password",
-    EMAIL = "email"
+    EMAIL = "email",
+    TIME = "time"
 }

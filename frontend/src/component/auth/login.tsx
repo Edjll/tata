@@ -13,7 +13,9 @@ export const Login = () => {
     const [password, setPassword] = useState('');
 
     const submit = () => {
-        AuthService.login(username, password);
+        AuthService
+            .login(username, password)
+            .then(() => window.location.pathname = '/');
     }
 
     return (

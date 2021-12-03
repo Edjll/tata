@@ -6,8 +6,8 @@ interface TableContentProps {
 
 export const TableContent = ({children}: TableContentProps) => {
     return (
-        <div className={'table__content'}>
+        <table className={'table__content'}>
             {children}
-        </div>
+        </table>
     )
 };

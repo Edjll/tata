@@ -2,6 +2,7 @@ package ru.sstu.tata.controller;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import ru.sstu.tata.database.entity.Camera;
 import ru.sstu.tata.dto.CameraRequest;
@@ -18,7 +19,7 @@ public class CameraController {
     private final CameraService cameraService;
 
     @GetMapping("/v1/cameras")
-    public List<Camera> getAllPageable(@RequestParam(required = false, defaultValue = "false") Boolean pagination,
+    public Page<Camera> getAllPageable(@RequestParam(required = false, defaultValue = "false") Boolean pagination,
                                        @RequestParam(required = false, defaultValue = "0") Integer page) {
         return cameraService.getAllPageable(pagination, page);
     }

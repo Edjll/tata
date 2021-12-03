@@ -7,12 +7,13 @@ interface FormInputProps {
     value: string
     inputHandler: Function
     type?: FormInputType,
-    error?: string
+    error?: string,
+    hasPlaceholder?: boolean
 }
 
-export const FormInput = ({title, value, inputHandler, type = FormInputType.TEXT, error}: FormInputProps) => {
+export const FormInput = ({title, value, inputHandler, type = FormInputType.TEXT, error, hasPlaceholder = false}: FormInputProps) => {
     const classList = ['form-input'];
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState(hasPlaceholder);
     const ref = React.createRef<HTMLLabelElement>();
 
     const documentClickEventListener = (e: MouseEvent): void => {
@@ -28,9 +29,11 @@ export const FormInput = ({title, value, inputHandler, type = FormInputType.TEXT
     }
 
     useEffect(() => {
-        document.addEventListener('click', documentClickEventListener);
-        return () => {
-            document.removeEventListener('click', documentClickEventListener);
+        if (!hasPlaceholder) {
+            document.addEventListener('click', documentClickEventListener);
+            return () => {
+                document.removeEventListener('click', documentClickEventListener);
+            }
         }
     });
 

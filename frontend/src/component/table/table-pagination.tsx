@@ -74,7 +74,8 @@ export const TablePagination = ({
         <div className={'table__pagination'}>
             {
                 pageNumber === 0
-                    ? <div className={`table__pagination__button table__pagination__previous table__pagination__button_disable`}>{'<'}</div>
+                    ? <div
+                        className={`table__pagination__button table__pagination__previous table__pagination__button_disable`}>{'<'}</div>
                     : <div
                         className={`table__pagination__button table__pagination__previous`}
                         onClick={() => clickHandler(pageNumber - 1)}
@@ -85,7 +86,8 @@ export const TablePagination = ({
 
             {
                 pageNumber === maxPage - 1
-                    ? <div className={`table__pagination__button table__pagination__next table__pagination__button_disable`}>{'>'}</div>
+                    ? <div
+                        className={`table__pagination__button table__pagination__next table__pagination__button_disable`}>{'>'}</div>
                     : <div
                         className={`table__pagination__button table__pagination__next`}
                         onClick={() => clickHandler(pageNumber + 1)}

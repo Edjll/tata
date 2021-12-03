@@ -12,6 +12,8 @@ import {RegistrationOperator} from "./component/admin/registration-operator";
 import {RegistrationCamera} from "./component/admin/registration-camera";
 import {AdminOperators} from "./component/admin/admin-operators";
 import {AdminCameras} from "./component/admin/admin-cameras";
+import {PrivateRoute} from "./private/private-route";
+import {Dashboard} from "./component/dashboard/dashboard";
 
 const Router = () => {
     return (
@@ -22,17 +24,17 @@ const Router = () => {
                 <Route path={'/clean-city'} element={<CleanCityMap/>}>
                     <Route path={':id'} element={
                         <Camera>
-                            <CameraVideo/>
                             <LineChart/>
                         </Camera>
                     }/>
                 </Route>
-                <Route path={'/admin'} element={<Admin/>}>
+                <Route path={'/admin'} element={<PrivateRoute component={Admin}/>}>
                     <Route path={'operators/registration'} element={<RegistrationOperator/>}/>
                     <Route path={'operators'} element={<AdminOperators/>}/>
                     <Route path={'cameras/registration'} element={<RegistrationCamera/>}/>
                     <Route path={'cameras'} element={<AdminCameras/>}/>
                 </Route>
+                <Route path={'/dashboard'} element={<Dashboard/>}/>
                 <Route path={'/'} element={<Home/>}/>
             </Routes>
         </BrowserRouter>

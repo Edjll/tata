@@ -8,8 +8,8 @@ interface TableRowProps {
 export const TableRow = ({children}: TableRowProps) => {
 
     return (
-        <div className="table__row">
+        <tr className="table__row">
             {children}
-        </div>
+        </tr>
     )
 };

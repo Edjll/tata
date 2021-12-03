@@ -13,6 +13,7 @@ import ru.sstu.tata.database.entity.User;
 import ru.sstu.tata.dto.TokenRequest;
 import ru.sstu.tata.dto.TokenResponse;
 
+import java.security.Principal;
 import java.util.Date;
 import java.util.Optional;
 
@@ -80,5 +81,9 @@ public class AuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         return authentication;
+    }
+
+    public void logout(Principal principal) {
+        refreshTokenService.deleteTokenByUsername(principal.getName());
     }
 }

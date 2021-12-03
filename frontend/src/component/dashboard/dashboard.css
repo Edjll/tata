@@ -1,0 +1,8 @@
+.dashboard {
+  display: flex;
+}
+.dashboard__panel {
+  background-color: #eaeaea;
+}
+
+/*# sourceMappingURL=dashboard.css.map */

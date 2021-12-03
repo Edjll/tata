@@ -56,7 +56,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().anyRequest().permitAll();
+                .authorizeRequests()
+                    .antMatchers("/v1/auth/verify").authenticated()
+                    .anyRequest().permitAll();
     }
 
     @Bean

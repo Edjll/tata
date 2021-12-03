@@ -5,6 +5,8 @@
   border-radius: .25rem;
   background-color: white;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 100%;
+  margin: 2rem;
 
   &__title {
     border-bottom: 2px solid #e6e6e6;
@@ -14,17 +16,9 @@
 
   &__row, &__header, &__toolbar {
     min-height: 2rem;
-    display: flex;
   }
 
   &__row {
-    &:not(:last-of-type) {
-      border-bottom: 1px solid #e6e6e6;
-    }
-
-    &:not(:first-of-type) {
-      border-top: 1px solid #e6e6e6;
-    }
   }
 
   &__header, &__toolbar:first-of-type {
@@ -38,6 +32,7 @@
   &__toolbar {
     align-items: center;
     justify-content: space-between;
+    display: flex;
 
     &__link {
       text-decoration: none;
@@ -50,24 +45,7 @@
   }
 
   &__cell {
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:not(:last-of-type) {
-      border-right: 1px solid #e6e6e6;
-    }
-
-    &:not(:first-of-type) {
-      border-left: 1px solid #e6e6e6;
-    }
-
-    &__text {
-      border: none;
-      width: 90%;
-      height: 26px;
-    }
+    padding: .5rem 1rem;
   }
 
   &__pagination {
