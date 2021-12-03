@@ -1,0 +1,20 @@
+server:
+  servlet:
+    context-path: /api
+
+token:
+  jwt:
+    secret: secret
+    expire: 3600
+  refresh:
+    secret: secret
+    expire: 360000
+
+spring:
+  datasource:
+    username: admin
+    password: admin
+    url: jdbc:postgresql://localhost:5432/tata
+  jpa:
+    hibernate:
+      ddl-auto: update
