@@ -31,6 +31,12 @@
         </dependency>
 
         <dependency>
+            <groupId>ru.sstu.tata</groupId>
+            <artifactId>camera</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.5.5</version>
