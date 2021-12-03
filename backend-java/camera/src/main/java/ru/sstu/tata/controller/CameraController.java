@@ -24,12 +24,17 @@ public class CameraController {
         return cameraService.getAllPageable(pagination, page);
     }
 
+    @GetMapping("/v1/cameras/{id}")
+    public Camera getCamera(@PathVariable Long id) {
+        return cameraService.getCamera(id);
+    }
+
     @PostMapping("/v1/cameras")
     public Camera createCamera(@RequestBody CameraRequest cameraRequest) {
         return cameraService.createCamera(cameraRequest);
     }
 
-    @PutMapping("/api/v1/cameras")
+    @PutMapping("/v1/cameras")
     public Camera updateCamera(@RequestBody UpdateCameraRequest cameraRequest) {
         return cameraService.updateCamera(cameraRequest);
     }
