@@ -30,10 +30,10 @@ public class Camera {
 
     private Double longitude; //долгота
 
-    private LocalDateTime startTime;
+    private LocalDateTime startTime; //время начала проверки
 
+    private LocalDateTime interval; //время после startTime (часы)
 
-    //время старта | date при регитсрации
-    //последний запуск | date обновляю после отправки в питон
+    private LocalDateTime lastCheck; //время последней проверки
 
 }
