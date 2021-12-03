@@ -4,13 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import ru.sstu.tata.database.entity.Camera;
 import ru.sstu.tata.database.repository.CameraRepository;
 import ru.sstu.tata.dto.CameraRequest;
 import ru.sstu.tata.dto.UpdateCameraRequest;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +25,12 @@ public class CameraService {
 
     public Camera createCamera(CameraRequest cameraRequest) {
         return cameraRepository.save(createCameraFromRequest(cameraRequest));
+    }
+
+    public Camera getCamera(Long id) {
+        return cameraRepository
+                .findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
 
