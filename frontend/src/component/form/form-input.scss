@@ -1,0 +1,95 @@
+.form-input {
+  position: relative;
+  display: flex;
+  margin: 1rem .5rem;
+  cursor: text;
+
+  &__title {
+    position: absolute;
+    margin-left: 1rem;
+    transition: top .1s, font-size .1s;
+    top: 1.1rem;
+    font-size: 1rem;
+    user-select: none;
+    font-weight: 500;
+  }
+
+  &__error {
+    padding: 1.1rem 1rem 0.7rem 1rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      color: red;
+      cursor: default;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &__text {
+      position: absolute;
+      display: none;
+      right: 2.5rem;
+      padding: .25rem .5rem;
+      background-color: #3e4446;
+      border-radius: .25rem;
+      color: #f58f8f;
+      max-width: 10rem;
+      width: max-content;
+    }
+
+    &:hover &__text {
+      display: block;
+    }
+  }
+
+  &__fieldset {
+    border-radius: .25rem;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+
+    &__legend {
+      padding: 0;
+      font-size: .8rem;
+      max-width: 0.01px;
+      margin-left: .6rem;
+      visibility: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    padding: 1.1rem 1rem .7rem 1rem;
+    z-index: 1;
+  }
+
+  &_active &, &_filled & {
+
+    &__title {
+      top: -.2rem;
+      font-size: .8rem;
+    }
+
+    &__fieldset {
+
+      &__legend {
+        max-width: 1000px;
+        padding: 0 .4rem;
+      }
+    }
+  }
+}
