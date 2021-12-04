@@ -41,4 +41,16 @@
     width: 1.8rem;
     height: 1.8rem;
   }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__confidences {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }

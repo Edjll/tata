@@ -35,5 +35,15 @@
   width: 1.8rem;
   height: 1.8rem;
 }
+.dashboard-card__footer {
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-card__confidences {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+}
 
 /*# sourceMappingURL=dashboard-card.css.map */

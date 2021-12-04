@@ -54,14 +54,20 @@ export const DashboardCard = () => {
             <CardBody className={'dashboard-card__body'}>
                 <img className={'dashboard-card__image'} src={'data:image/png;base64,' + record?.image} alt={'image'}/>
             </CardBody>
-            <CardFooter>
-                <button className={'dashboard-card__button dashboard-card__button_reject'} onClick={() => reject()}>Ничего нет</button>
-                {
-                    record?.operator
-                        ?   <span className={'dashboard-card__modifier'}>Решение принял: {record.operator}</span>
-                        :   null
-                }
-                <button className={'dashboard-card__button dashboard-card__button_approve'} onClick={() => approve()}>Подтверждаю</button>
+            <CardFooter className={'dashboard-card__footer'}>
+                <div className={'dashboard-card__confidences'}>
+                    <span className={'dashboard-card__confidences__item dashboard-card__confidences__item_full'}>Вероятность заполненности: {record?.fullConfidence}</span>
+                    <span className={'dashboard-card__confidences__item dashboard-card__confidences__item_empty'}>Вероятность пустоты: {record?.emptyConfidence}</span>
+                </div>
+                <div className={'dashboard-card__buttons'}>
+                    <button className={'dashboard-card__button dashboard-card__button_reject'} onClick={() => reject()}>Ничего нет</button>
+                    {
+                        record?.operator
+                            ?   <span className={'dashboard-card__modifier'}>Решение принял: {record.operator}</span>
+                            :   null
+                    }
+                    <button className={'dashboard-card__button dashboard-card__button_approve'} onClick={() => approve()}>Подтверждаю</button>
+                </div>
             </CardFooter>
         </Card>
     )

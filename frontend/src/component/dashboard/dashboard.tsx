@@ -15,7 +15,9 @@ export interface Record {
     date: string,
     status: RecordStatus,
     image?: string,
-    operator?: string
+    operator?: string,
+    fullConfidence: number
+    emptyConfidence: number
 }
 
 export interface Service {

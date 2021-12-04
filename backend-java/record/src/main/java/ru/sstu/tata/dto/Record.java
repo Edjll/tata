@@ -26,6 +26,10 @@ public class Record {
 
     private String operator;
 
+    private Double fullConfidence;
+
+    private Double emptyConfidence;
+
     public Record(CleanCityEntity cleanCityEntity) {
         this.id = cleanCityEntity.getId();
         this.image = cleanCityEntity.getImage64();
@@ -34,6 +38,8 @@ public class Record {
         this.status = cleanCityEntity.getStatus();
         if (cleanCityEntity.getOperator() != null)
             this.operator = cleanCityEntity.getOperator().getName() + ' ' + cleanCityEntity.getOperator().getSurname();
+        this.fullConfidence = cleanCityEntity.getFullConfidence();
+        this.emptyConfidence = cleanCityEntity.getEmptyConfidence();
     }
 
     public Record(HappyCityEntity happyCityEntity) {
