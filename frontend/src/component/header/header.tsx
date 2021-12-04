@@ -2,7 +2,7 @@ import './header.css';
 import logo from '../../images/logo.png';
 import {Link, useLocation} from "react-router-dom";
 import {HeaderServices} from "./header-services";
-import {PrivateLink} from "../../private/private-link";
+import {PrivateLink} from "../private/private-link";
 import {Role} from "../../service/role";
 import {AuthService} from "../../service/auth-service";
 
@@ -14,13 +14,14 @@ export const Header = () => {
             <div className={'header__wrapper'}>
                 <Link to={'/'} className={'header__logo'}>
                     <img className={'header__logo__image'} src={logo} alt="logo"/>
-                    <span className={'header__logo__text'}>Название</span>
+                    <span className={'header__logo__text'}>ПлаКаН</span>
                 </Link>
                 <div className={'header__navigation'}>
                     {
-                        location.pathname === '/' || location.pathname.includes('/admin') ? null : <HeaderServices/>
+                        location.pathname === '/' || location.pathname.includes('/admin') || location.pathname.includes('/dashboard') ? null : <HeaderServices/>
                     }
                     <PrivateLink roles={[Role.ADMIN]} to={'/admin'} className={'header__link'}>Админка</PrivateLink>
+                    <PrivateLink roles={[]} to={'/dashboard'} className={'header__link'}>Доска</PrivateLink>
                     {
                         !AuthService.isAuthenticated()
                             ?   <Link to={'/login'} className={'header__link'}>Войти</Link>

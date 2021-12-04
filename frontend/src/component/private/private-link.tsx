@@ -1,8 +1,8 @@
-import {AuthService} from "../service/auth-service";
-import {Role} from "../service/role";
 import {Link, LinkProps} from "react-router-dom";
 import * as React from "react";
 import {ReactNode} from "react";
+import {AuthService} from "../../service/auth-service";
+import {Role} from "../../service/role";
 
 interface PrivateLinkProps {
     roles: Role [],

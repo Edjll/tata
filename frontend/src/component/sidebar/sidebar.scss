@@ -4,6 +4,8 @@
   height: calc(100vh - 5rem);
   position: relative;
   z-index: 1;
+  max-width: 20rem;
+  width: 100%;
 
   &__wrapper {
     height: 100%;

@@ -5,11 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Data
@@ -30,9 +28,11 @@ public class Camera {
 
     private Double longitude; //долгота
 
-    private LocalDateTime startTime; //время начала проверки
+    @Column(columnDefinition = "TIME")
+    private LocalTime startTime; //время начала проверки
 
-    private LocalDateTime interval; //время после startTime (часы)
+    @Column(columnDefinition = "TIME")
+    private LocalTime interval; //время после startTime (часы)
 
     private LocalDateTime lastCheck; //время последней проверки
 

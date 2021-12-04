@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 @Data
 @Entity
 @AllArgsConstructor
@@ -32,4 +33,9 @@ public class HappyCityEntity {
 
     @ManyToOne
     private Camera camera;
+
+    @ManyToOne
+    private User operator;
+
+    private RecordStatus status = RecordStatus.WAITING;
 }

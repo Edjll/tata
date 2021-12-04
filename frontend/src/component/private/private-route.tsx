@@ -1,6 +1,6 @@
 import React from "react";
-import {Navigate, useNavigate} from "react-router-dom";
-import {AuthService} from "../service/auth-service";
+import {Navigate} from "react-router-dom";
+import {AuthService} from "../../service/auth-service";
 
 interface PrivateRouteProps {
     component: React.ComponentType

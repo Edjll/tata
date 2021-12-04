@@ -28,4 +28,8 @@ public class CleanCityEntity {
     @ManyToOne
     private Camera camera;
 
+    @ManyToOne
+    private User operator;
+
+    private RecordStatus status = RecordStatus.WAITING;
 }

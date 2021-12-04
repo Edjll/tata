@@ -42,6 +42,17 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>ru.sstu.tata</groupId>
+            <artifactId>statistics</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.sstu.tata</groupId>
+            <artifactId>record</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springdoc</groupId>

@@ -1,16 +1,19 @@
-import './clean-city-map.css';
+import './map-page.css';
 import React, {useEffect, useState} from "react";
 import {Outlet, useNavigate, useParams} from "react-router-dom";
 import {LeafletMap, MarkerType} from "../leaflet-map";
 import {RequestService} from "../../../service/request-service";
 
 interface Camera extends MarkerType {
-
     latitude: number,
     longitude: number
 }
 
-export const CleanCityMap = () => {
+interface MapPageProps {
+    to: string
+}
+
+export const MapPage = ({to}: MapPageProps) => {
     const [cameras, setCameras] = useState<Camera []>([]);
     const navigate = useNavigate();
     const params = useParams();
@@ -56,13 +59,13 @@ export const CleanCityMap = () => {
     }, [params, cameras]);
 
     return (
-        <div className={'clean-city-map'}>
+        <div className={'map-page'}>
             <LeafletMap
                 defaultCenter={[54.89218755754985, 52.2955119138831]}
                 selectedMarker={currentCamera}
                 icons={icons}
                 markers={cameras}
-                markerClickHandler={(marker: MarkerType) => navigate(`/clean-city/${marker.id}`)}
+                markerClickHandler={(marker: MarkerType) => navigate(`/${to}/${marker.id}`)}
             />
             <Outlet/>
         </div>

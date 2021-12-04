@@ -5,7 +5,7 @@ import arrowIcon from '../../images/arrow-down.png';
 
 export const HeaderServices = () => {
     const [currentService, setCurrentService] = useState(0);
-    const services = [{path: '/clean-city', name: 'Чистый город'}, {path: '#', name: 'Друг человека'}];
+    const services = [{path: '/clean-city', name: 'Чистый город'}, {path: '/friend-of-human', name: 'Друг человека'}];
 
     const [active, setActive] = useState(false);
 

@@ -39,6 +39,7 @@ export class AuthService {
     }
 
     public static hasRole(roles: Role []): boolean {
+        if (roles.length === 0) return true;
         return roles.find(role => AuthService.parsedAccessToken.roles[0] === role) !== undefined;
     }
 

@@ -2,10 +2,12 @@ import './line-chart.css';
 import {
     CategoryScale,
     Chart as ChartJS,
+    ChartData,
     Legend,
     LinearScale,
     LineElement,
     PointElement,
+    ScatterDataPoint,
     Title,
     Tooltip,
 } from 'chart.js';
@@ -14,7 +16,14 @@ import {CardBody} from "../card/card-body";
 import {Card} from '../card/card';
 import {CardHeader} from "../card/card-header";
 
-export const LineChart = () => {
+interface LineChartProps {
+    data: ChartData<"line", (number | ScatterDataPoint | null)[], unknown>,
+    title: string,
+    min?: number,
+    max?: number
+}
+
+export const LineChart = ({data, title, min, max}: LineChartProps) => {
     ChartJS.register(
         CategoryScale,
         LinearScale,
@@ -45,7 +54,9 @@ export const LineChart = () => {
                         family: '"Comfortaa-Bold", sans-serif'
                     },
                     padding: 10
-                }
+                },
+                min: min ? min : undefined,
+                max: max ? max: undefined
             },
             x: {
                 grid: {
@@ -62,31 +73,10 @@ export const LineChart = () => {
         }
     };
 
-    const labels = [
-        new Date('2021-11-25').toLocaleDateString(),
-        new Date('2021-11-26').toLocaleDateString(),
-        new Date('2021-11-27').toLocaleDateString(),
-        new Date('2021-11-28').toLocaleDateString(),
-        new Date('2021-11-29').toLocaleDateString()
-    ];
-
-    const data = {
-        labels,
-        datasets: [
-            {
-                label: 'Заполненность мусором',
-                data: [10, 70, 30, 60, 50],
-                borderColor: 'rgba(2,133,88, 1)',
-                backgroundColor: 'rgba(13,176,96,0.5)',
-                radius: 5
-            }
-        ],
-    };
-
     return (
         <Card className={'line-chart'}>
             <CardHeader>
-                Заполненность баков
+                {title}
             </CardHeader>
             <CardBody className={'line-chart__body'}>
                 <Line data={data} options={options}/>

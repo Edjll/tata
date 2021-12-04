@@ -13,7 +13,7 @@ import ru.sstu.tata.dto.CameraRequest;
 import ru.sstu.tata.dto.UpdateCameraRequest;
 
 import javax.annotation.PostConstruct;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,15 +71,15 @@ public class CameraService {
 
     //comment me if use real data
     @PostConstruct
-    private void mockCameraData(){
+    private void mockCameraData() {
         List<Camera> cameraList = new ArrayList<>();
-        for (int i = 0; i < 58; i ++) {
+        for (int i = 0; i < 58; i++) {
             Camera camera = new Camera();
             camera.setId((long) i);
             camera.setIp("192.168.0.0"); //neuron-be нужен лишь id камеры
             camera.setAddress("Саратов, ул. Московская");
-            camera.setStartTime(LocalDateTime.now().plusHours(i%12));
-            camera.setInterval(LocalDateTime.now());
+            camera.setStartTime(LocalTime.now().plusHours(i % 12));
+            camera.setInterval(LocalTime.now());
             cameraList.add(camera);
         }
         cameraList.get(0).setLongitude(54.90260106797759);

@@ -1,12 +1,12 @@
-.clean-city-map {
+.map-page {
   height: calc(100vh - 5rem);
   display: flex;
 }
-.clean-city-map > .leaflet-container {
+.map-page > .leaflet-container {
   width: 100%;
   position: relative;
 }
-.clean-city-map > .leaflet-container::after {
+.map-page > .leaflet-container::after {
   content: "";
   position: absolute;
   top: 0;
@@ -15,8 +15,8 @@
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 4px 1px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   z-index: -1;
 }
-.clean-city-map .leaflet-pane {
+.map-page .leaflet-pane {
   z-index: 0;
 }
 
-/*# sourceMappingURL=clean-city-map.css.map */
+/*# sourceMappingURL=map-page.css.map */

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
@@ -14,6 +15,6 @@ public class CameraRequest {
     private String address;
     private Double latitude;
     private Double longitude;
-    private LocalDateTime startTime;
-    private LocalDateTime interval;
+    private LocalTime startTime;
+    private LocalTime interval;
 }

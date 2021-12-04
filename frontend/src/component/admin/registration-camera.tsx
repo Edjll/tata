@@ -44,7 +44,7 @@ export const RegistrationCamera = () => {
                     <FormInput title={'Широта'} value={latitude} inputHandler={setLatitude}/>
                     <FormInput title={'Адрес'} value={address} inputHandler={setAddress}/>
                     <FormInput title={'Время запуска'} value={startTime} inputHandler={setStartTime} type={FormInputType.TIME} hasPlaceholder={true}/>
-                    <FormInput title={'Интервал'} value={address} inputHandler={setInterval} type={FormInputType.TIME} hasPlaceholder={true}/>
+                    <FormInput title={'Интервал'} value={interval} inputHandler={setInterval} type={FormInputType.TIME} hasPlaceholder={true}/>
                 </CardBody>
                 <CardFooter>
                     <button className={'registration__button'} onClick={() => submit()}>Зарегистрировать</button>
