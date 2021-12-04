@@ -17,7 +17,7 @@ public class CleanCityEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String image64;
+    private byte[] image64;
 
     private Double fullConfidence;
 

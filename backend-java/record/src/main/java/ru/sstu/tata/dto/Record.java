@@ -32,7 +32,7 @@ public class Record {
 
     public Record(CleanCityEntity cleanCityEntity) {
         this.id = cleanCityEntity.getId();
-        this.image = cleanCityEntity.getImage64();
+        this.image = new String(cleanCityEntity.getImage64());
         this.date = cleanCityEntity.getDate();
         this.service = 0;
         this.status = cleanCityEntity.getStatus();

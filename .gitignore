@@ -3,7 +3,11 @@
 *.iml
 
 frontend/node_modules
+backend-java/trash_can
 
 **/target
 
 db/data
+
+resNet-master/trash_can
+resNet-master/resNet.h5
