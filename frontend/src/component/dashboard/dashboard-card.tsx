@@ -18,7 +18,7 @@ export const DashboardCard = () => {
             .getInstance()
             .get(RequestService.BACKEND_URL + 'v1/records/' + params.service + '/' + params.id)
             .then(response => setRecord(response.data));
-    }, []);
+    }, [params]);
 
     const sendChangeRequest = (value: RecordStatus) => {
         if (record !== null) {
