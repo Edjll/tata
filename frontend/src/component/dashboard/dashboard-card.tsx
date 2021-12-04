@@ -52,8 +52,7 @@ export const DashboardCard = () => {
                 }
             </CardHeader>
             <CardBody className={'dashboard-card__body'}>
-                {/*<img className={'dashboard-card__image'} src={record?.image} alt={'image'}/>*/}
-                <img className={'dashboard-card__image'} src={image} alt={'image'}/>
+                <img className={'dashboard-card__image'} src={'data:image/png;base64,' + record?.image} alt={'image'}/>
             </CardBody>
             <CardFooter>
                 <button className={'dashboard-card__button dashboard-card__button_reject'} onClick={() => reject()}>Ничего нет</button>
