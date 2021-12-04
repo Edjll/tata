@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {ChartData, ScatterDataPoint} from "chart.js";
 import {RequestService} from "../../service/request-service";
 import {LineChart} from "./line-chart";
+import {useParams} from "react-router-dom";
 
 interface FriendOfHuman {
     date: string,
@@ -12,6 +13,7 @@ export const FriendOfHumanChart = () => {
     const [data, setData] = useState<ChartData<"line", (number | ScatterDataPoint | null)[], unknown>>({
         labels: [], datasets: []
     });
+    const params = useParams();
 
     useEffect(() => {
         RequestService
@@ -20,7 +22,7 @@ export const FriendOfHumanChart = () => {
                 RequestService.BACKEND_URL + 'v1/statistics/friend-of-human',
                 {
                     params: {
-                        cameraId: 1
+                        cameraId: params.id
                     }
                 }
             ).then(response => {
@@ -37,7 +39,7 @@ export const FriendOfHumanChart = () => {
                 ]
             });
         });
-    }, []);
+    }, [params]);
 
     return (
         <LineChart data={data} title={'Количество животных за сутки'}/>

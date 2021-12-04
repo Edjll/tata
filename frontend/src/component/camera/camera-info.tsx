@@ -24,7 +24,7 @@ export const CameraInfo = () => {
             .getInstance()
             .get(RequestService.BACKEND_URL + 'v1/cameras/' + params.id)
             .then(response => setCamera(response.data));
-    }, []);
+    }, [params]);
 
     return (
         <Card className={'camera-info'}>

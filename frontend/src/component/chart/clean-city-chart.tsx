@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {ChartData, ScatterDataPoint} from "chart.js";
 import {RequestService} from "../../service/request-service";
 import {LineChart} from "./line-chart";
+import {useParams} from "react-router-dom";
 
 interface CleanCity {
     date: string,
@@ -13,6 +14,7 @@ export const CleanCityChart = () => {
     const [data, setData] = useState<ChartData<"line", (number | ScatterDataPoint | null)[], unknown>>({
         labels: [], datasets: []
     });
+    const params = useParams();
 
     useEffect(() => {
         RequestService
@@ -21,7 +23,7 @@ export const CleanCityChart = () => {
                 RequestService.BACKEND_URL + 'v1/statistics/clean-city',
                 {
                     params: {
-                        cameraId: 1
+                        cameraId: params.id
                     }
                 }
             ).then(response => {
@@ -43,7 +45,7 @@ export const CleanCityChart = () => {
                 ]
             });
         });
-    }, []);
+    }, [params]);
 
     return (
         <LineChart data={data} title={'Вероятности заполненности'} min={0} max={100}/>
