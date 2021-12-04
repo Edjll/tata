@@ -2,14 +2,11 @@ package ru.sstu.tata.configuration;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
-import org.springframework.kafka.core.KafkaTemplate;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,13 +31,4 @@ public class KafkaTopicConfiguration {
         return new NewTopic(producerTopic, 1, (short) 1);
     }
 
-//    @Autowired
-//    private KafkaTemplate<String, String> kafkaTemplate;
-
-//    @PostConstruct
-//    public void sendMessage() {
-//        for (int i = 0; i < 50; i++) {
-//            kafkaTemplate.send(producerTopic, "{\"id\":1,\"ip\":\"192.168.0.0\"}");
-//        }
-//    }
 }
