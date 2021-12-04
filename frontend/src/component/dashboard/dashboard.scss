@@ -1,6 +1,19 @@
 .dashboard {
   display: flex;
 
+  &__link {
+
+    &__date {
+      font-size: .8rem;
+      margin-top: .2rem;
+    }
+
+    &__icon {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+
   &__panel {
     background-color: #eaeaea;
     width: 100%;

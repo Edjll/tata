@@ -12,7 +12,7 @@ interface CustomMarkerGroupProps {
 export const CustomMarkerGroup = ({children, className}: CustomMarkerGroupProps) => {
 
     const colors = [
-        '#ef4040', '#2dac49'
+        '#2dac49', '#ef4040'
     ];
 
     const generateColors = (markers: Marker []): string => {

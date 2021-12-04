@@ -40,10 +40,16 @@
       user-select: none;
     }
 
-    &__text {
+    &__body {
       margin-right: 1rem;
       font-size: 1.1rem;
       color: #425066;
+      width: 100%;
+    }
+
+    &__after {
+      display: flex;
+      align-items: center;
     }
   }
 }

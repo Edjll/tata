@@ -1,0 +1,12 @@
+.camera-info {
+  margin: 1rem;
+}
+.camera-info__body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.camera-info__attribute, .camera-info__value {
+  padding: 0.5rem;
+}
+
+/*# sourceMappingURL=camera-info.css.map */

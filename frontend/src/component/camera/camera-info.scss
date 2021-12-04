@@ -1,0 +1,12 @@
+.camera-info {
+  margin: 1rem;
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__attribute, &__value {
+    padding: .5rem;
+  }
+}

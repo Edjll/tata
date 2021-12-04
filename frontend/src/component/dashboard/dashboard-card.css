@@ -1,0 +1,39 @@
+.dashboard-card {
+  margin: 2rem;
+  max-width: 80rem;
+  min-width: 20rem;
+  min-height: 20rem;
+}
+.dashboard-card__body {
+  padding: 0;
+}
+.dashboard-card__image {
+  width: 100%;
+  height: 100%;
+}
+.dashboard-card__modifier {
+  margin: 0 0.5rem;
+}
+.dashboard-card__button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.dashboard-card__button_approve {
+  background-color: #007f3b;
+  margin-left: 0.5rem;
+}
+.dashboard-card__button_reject {
+  background-color: #cc0e0e;
+  margin-right: 0.5rem;
+}
+.dashboard-card__icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+/*# sourceMappingURL=dashboard-card.css.map */

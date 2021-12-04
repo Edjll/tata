@@ -45,7 +45,7 @@ const Router = () => {
                     <Route path={'cameras/registration'} element={<RegistrationCamera/>}/>
                     <Route path={'cameras'} element={<AdminCameras/>}/>
                 </Route>
-                <Route path={'/dashboard'} element={<Dashboard/>}>
+                <Route path={'/dashboard'} element={<PrivateRoute component={Dashboard}/>}>
                     <Route path={':service/:id'} element={<DashboardCard/>}/>
                 </Route>
                 <Route path={'/'} element={<Home/>}/>

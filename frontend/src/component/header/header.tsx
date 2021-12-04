@@ -18,7 +18,7 @@ export const Header = () => {
                 </Link>
                 <div className={'header__navigation'}>
                     {
-                        location.pathname === '/' || location.pathname.includes('/admin') || location.pathname.includes('/dashboard') ? null : <HeaderServices/>
+                        location.pathname === '/' || location.pathname.includes('/admin') || location.pathname.includes('/dashboard') || location.pathname.includes('/login') ? null : <HeaderServices/>
                     }
                     <PrivateLink roles={[Role.ADMIN]} to={'/admin'} className={'header__link'}>Админка</PrivateLink>
                     <PrivateLink roles={[]} to={'/dashboard'} className={'header__link'}>Доска</PrivateLink>

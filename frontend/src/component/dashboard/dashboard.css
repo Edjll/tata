@@ -1,6 +1,14 @@
 .dashboard {
   display: flex;
 }
+.dashboard__link__date {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+.dashboard__link__icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
 .dashboard__panel {
   background-color: #eaeaea;
   width: 100%;
